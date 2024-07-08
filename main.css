@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    margin: 0;
+    height: 100vh;
+
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+/*HEADER*/
+header{
+    display: flex;
+    margin: 0 ;
+    margin: -9px;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #073590;
+    ;
+}
+.logo-naslov{
+    display: flex;
+    align-items: center;
+    
+}
+
+.logo-naslov a{
+    text-decoration: none;
+    color: white;
+}
+.logo-naslov img{
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+.header-linkovi a{
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 5px;
+    
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.header-linkovi a::after{
+    content: "";
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transform-origin: left;
+    transition: transform ease-in 250ms;
+    background-color: white;
+}
+.header-linkovi a:hover::after{
+    transform: scaleX(1);
+
+}
+.logo-naslov h2 a:hover{
+    color:  #f1c933;
+}
+/*------------------------------------------------*/
+/*MAIN*/
+main{
+    max-width: 1020px;
+    height: 1200px;
+    -outline: 2px dotted red;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.main-linkovi{
+    display: flex;
+    width: 500px;
+    -outline: 2px dotted red;
+    justify-content: space-between;
+}
+.main-linkovi a{
+    text-decoration: none;
+    color: #073590;
+    border-right: 2px solid white;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.main-linkovi a::after{
+    
+    content: "";
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #073590;
+    transform: scaleX(0);
+    transform-origin: right;
+    transform-origin: left;
+    transition: transform ease-in 250ms;
+}
+.main-linkovi a:hover::after{
+    transform: scaleX(1);
+
+}
+.destinacije{
+    margin-top: 50px;
+    display: flex;
+    justify-content:left;
+}
+.destinacije select{
+    height: 50px;
+    width: 400px;
+    border-radius: 5px;
+    border: 0;
+    font-size: large;
+    margin-right: 5px;
+    box-shadow: 5px 5px 10px 2px grey;
+}
+
+
+.destinacije button{
+    color: #073590;
+    background-color:  #f1c933;
+    border: 0;
+    font-size: large;
+    font-weight: 600;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 5px 5px 10px 2px grey;
+
+}
+
+.slike .img1{
+    background-image: url('img/img2.webp');
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px 2px grey;
+
+}
+.slike .img2{
+    background-image: url('img/img4.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 530px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px 2px grey;
+
+}
+
+
+/*------------------------------------------------*/
+/*FOOTER*/
+footer{
+    margin: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+
+}
+.drugi{
+    text-align: center;
+    border-left: 2px dotted grey;
+    padding-left: 15px;
+    border-right: 2px dotted grey;
+    padding-right: 15px;
+}
+.footer-linkovi{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-linkovi a{
+    text-decoration: none;
+    color: #073590;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-linkovi {
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main-linkovi {
+        flex-direction: column;
+        align-items: center;
+    }
+    .destinacije {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .destinacije input,
+    .destinacije button {
+        width: 100%;
+    }
+    .footer-linkovi {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 480px) {
+    .main-linkovi a {
+        width: 100%;
+        text-align: center;
+    }
+    .header-linkovi {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-linkovi a {
+        width: 100%;
+        text-align: center;
+    }
+}
