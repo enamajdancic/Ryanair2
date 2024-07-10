@@ -1,0 +1,56 @@
+main{
+    height: 1000px;
+    text-align: center;
+}
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardInfo input{
+    margin-top: 10px;
+    height: 50px;
+    width: 396px;
+    border-radius: 5px;
+    border: 0;
+    font-size: large;
+    margin-right: 5px;
+    box-shadow: 5px 5px 10px 2px grey;
+}
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userInfo input{
+    margin-top: 10px;
+    height: 50px;
+    width: 396px;
+    border-radius: 5px;
+    border: 0;
+    font-size: large;
+    margin-right: 5px;
+    box-shadow: 5px 5px 10px 2px grey;
+}
+
+#bookingDetails{
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 0;
+    font-size: large;
+    box-shadow: 5px 5px 10px 2px grey;
+    padding: 20px;
+    text-align: left;
+}
+.bookingDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img img{
+    height: 250px;
+
+}
+#confirmation{
+color: #073590;    
+}

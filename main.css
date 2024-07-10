@@ -75,7 +75,7 @@ header{
 /*MAIN*/
 main{
     max-width: 1020px;
-    height: 1200px;
+    -height: 1200px;
     -outline: 2px dotted red;
     margin: 0 auto;
     margin-top: 50px;
@@ -112,14 +112,16 @@ main{
     transform: scaleX(1);
 
 }
+/*
 .destinacije{
     margin-top: 50px;
     display: flex;
     justify-content:left;
-}
-.destinacije select{
+}*/
+select{
+    margin-top: 20px;
     height: 50px;
-    width: 400px;
+    width: 396px;
     border-radius: 5px;
     border: 0;
     font-size: large;
@@ -128,7 +130,7 @@ main{
 }
 
 
-.destinacije button{
+button{
     color: #073590;
     background-color:  #f1c933;
     border: 0;
@@ -161,6 +163,19 @@ main{
 
 }
 
+
+.flight{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -outline: 2px dotted red;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px 2px grey;
+    padding: 20px;
+    border-radius: 5px;
+
+
+}
 
 /*------------------------------------------------*/
 /*FOOTER*/
