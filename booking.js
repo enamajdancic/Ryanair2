@@ -4,10 +4,24 @@ function bookNow() {
     const phoneNumber = document.getElementById('phoneNumber').value;
     const name = document.getElementById('name').value;
 
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expirationDate = document.getElementById('expirationDate').value;
+    const cvv = document.getElementById('cvv').value;
+
+    
+
     const bookingData = {
-        email: email,
-        phoneNumber: phoneNumber,
-        name: name
+        userInfo:{
+            email: email,
+            phoneNumber: phoneNumber,
+            fullName: name
+        },
+        cardInfo:{
+            cardNumber: cardNumber,
+            expirationDate: expirationDate,
+            cvv: cvv
+        },
+        offerId: offerId
     };
 
     fetch('http://localhost:3000/api/bookings', {
@@ -20,9 +34,9 @@ function bookNow() {
     })
     .then(response => response.json())
     .then(data => {
-        localStorage.setItem('bookingId', data.id);
 
-        window.location.href = 'mybookings1.html';
+
+         window.location.href = 'mybookings1.html';
     })
     
     .catch(error => {
@@ -36,10 +50,11 @@ function bookNow() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const bookingId = localStorage.getItem('bookingId');
-
-    if (bookingId) {
-        fetch(`http://localhost:3000/api/bookings/${bookingId}`, {
+    
+   
+    offerId = localStorage.getItem('offerId');
+    if (offerId) {
+        fetch(`http://localhost:3000/api/bookings/${offerId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
@@ -52,15 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const bookingDetailsDiv = document.getElementById('bookingDetails');
             const confirmationDiv = document.getElementById('confirmation');
             confirmationDiv.innerHTML = `
-            <h2>Flight booked! Than you for flying with us.</h2>`
+            <h2>Flight booked! Thank you for flying with us.</h2>`
 
             bookingDetailsDiv.innerHTML = `
         <div class="bookingDiv">
             <div class="bookingDone">
                 <p>Email: ${data.email}</p>
                 <p>Phone Number: ${data.phoneNumber}</p>
-                <p>Name: ${data.name}</p>
-                <p>Booking ID: ${data.id}</p>
+                <p>Name: ${data.fullName}</p>
+                <p>Booking ID: ${offerId}</p>
             </div>
             <div class="img">
                 <img src="airplane.png">

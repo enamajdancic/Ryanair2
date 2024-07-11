@@ -97,7 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <button class="gumb2" onclick="bookFlight()">Book a flight</button>
   </div>
 `;
-            
+        localStorage.setItem('offerId', flight.id);
+
               flightsContainer.appendChild(flightElement);
           });
       });

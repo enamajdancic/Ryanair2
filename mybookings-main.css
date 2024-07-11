@@ -41,14 +41,20 @@ main{
     box-shadow: 5px 5px 10px 2px grey;
     padding: 20px;
     text-align: left;
+    ;
 }
 .bookingDiv{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.bookingDone{
+    display: flex;
+    flex-direction: column;
+    
+}
 .img img{
-    height: 250px;
+    height: 200px;
 
 }
 #confirmation{
