@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 `;
         localStorage.setItem('offerId', flight.id);
+        
 
               flightsContainer.appendChild(flightElement);
           });

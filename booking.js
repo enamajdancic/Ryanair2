@@ -35,7 +35,8 @@ function bookNow() {
     .then(response => response.json())
     .then(data => {
 
-
+        
+        localStorage.setItem('email',data.userInfo.email );
          window.location.href = 'mybookings1.html';
     })
     
@@ -51,10 +52,11 @@ function bookNow() {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-   
+    
+    email = localStorage.getItem('email');
     offerId = localStorage.getItem('offerId');
-    if (offerId) {
-        fetch(`http://localhost:3000/api/bookings/${offerId}`, {
+    if (email) {
+        fetch(`http://localhost:3000/api/bookings/${email}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
@@ -64,17 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         
         .then(data => {
+            console.log(data[0])
             const bookingDetailsDiv = document.getElementById('bookingDetails');
             const confirmationDiv = document.getElementById('confirmation');
             confirmationDiv.innerHTML = `
             <h2>Flight booked! Thank you for flying with us.</h2>`
-
+            
             bookingDetailsDiv.innerHTML = `
         <div class="bookingDiv">
             <div class="bookingDone">
-                <p>Email: ${data.email}</p>
-                <p>Phone Number: ${data.phoneNumber}</p>
-                <p>Name: ${data.fullName}</p>
+                <p>Email: ${data.userInfo.email}</p>
+                <p>Phone Number: ${data.userInfo.phoneNumber}</p>
+                <p>Name: ${data.userInfo.fullName}</p>
                 <p>Booking ID: ${offerId}</p>
             </div>
             <div class="img">
