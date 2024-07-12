@@ -8,7 +8,7 @@ function bookNow() {
     const expirationDate = document.getElementById('expirationDate').value;
     const cvv = document.getElementById('cvv').value;
 
-    
+    const offerId = localStorage.getItem('offerId'); // Pretpostavka da je offerId spremljen u localStorage
 
     const bookingData = {
         userInfo:{
@@ -34,10 +34,9 @@ function bookNow() {
     })
     .then(response => response.json())
     .then(data => {
-
-        
         localStorage.setItem('email',data.userInfo.email );
-         window.location.href = 'mybookings1.html';
+        fetchBookingDetails();
+        window.location.href = 'mybookings1.html';
     })
     
     .catch(error => {
@@ -45,12 +44,63 @@ function bookNow() {
     });
 }
 
+function fetchBookingDetails() {
+    const email = localStorage.getItem('email');
+    if (email) {
+        fetch(`http://localhost:3000/api/bookings?email=${email}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            displayBookingDetails(data);
+        })
+        .catch(error => {
+            console.error('Error fetching booking details:', error);
+        });
+    } else {
+        document.getElementById('bookingDetails').innerHTML = 'No booking information found.';
+    }
+}
 
-
+function displayBookingDetails(data) {
+    const bookingDetailsDiv = document.getElementById('bookingDetails');
+    if (data.length > 0) {
+        let bookingElement = "";
+        for(let booking of data) {
+            bookingElement = bookingElement + `
+            <div class="bookingDiv">
+            
+                <div class="bookingDone">
+                    <p>Email: ${booking.userInfo.email}</p>
+                    <p>Phone Number: ${booking.userInfo.phoneNumber}</p>
+                    <p>Name: ${booking.userInfo.fullName}</p>
+                    <p>Booking ID: ${booking.offerId || localStorage.getItem('offerId')}</p>
+                </div>
+                <div class="img">
+                    <img src="airplane.png" alt="Airplane">
+                </div>
+            </div>
+        `
+        };
+        bookingDetailsDiv.innerHTML = bookingElement
+    } else {
+        bookingDetailsDiv.innerHTML = 'No booking information found.';
+    }
+}
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    fetchBookingDetails();
+});
+
+
+
+
+/*document.addEventListener('DOMContentLoaded', () => {
     
     
     email = localStorage.getItem('email');
@@ -96,3 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('bookingDetails').innerHTML = 'No booking information found.';
     }
 });
+*/

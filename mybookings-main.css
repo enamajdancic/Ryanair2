@@ -38,15 +38,19 @@ main{
     border-radius: 5px;
     border: 0;
     font-size: large;
-    box-shadow: 5px 5px 10px 2px grey;
+    -box-shadow: 5px 5px 10px 2px grey;
     padding: 20px;
     text-align: left;
-    ;
 }
 .bookingDiv{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -border: 1px solid ;
+    box-shadow: 5px 5px 10px 2px grey;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
 }
 .bookingDone{
     display: flex;

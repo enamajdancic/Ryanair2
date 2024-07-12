@@ -6,7 +6,7 @@
 .container{
     margin: 0;
     height: 100vh;
-
+    
 }
 
 body{
@@ -75,7 +75,7 @@ header{
 /*MAIN*/
 main{
     max-width: 1020px;
-    -height: 1200px;
+    min-height: 7000px;
     -outline: 2px dotted red;
     margin: 0 auto;
     margin-top: 50px;
@@ -185,7 +185,7 @@ footer{
     display: flex;
     justify-content: space-between;
     font-weight: 400;
-
+    position: sticky;
 }
 .drugi{
     text-align: center;
